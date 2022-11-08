@@ -5,14 +5,14 @@ import javax.swing.*;
 
 public class window extends JFrame {
 
+    Expendedor exp;
     public JPanel panel;
-    Bebida bebida;
     public window() {
         setSize(600, 600);//Establece tamanho de la ventana
         setTitle("Expendedor de Bebidas 3000");
         setLocationRelativeTo(null);//Establece posicion de la ventana
-        
         IniciarVentana();
+        exp = new Expendedor(6, 500, panel);
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
@@ -20,36 +20,22 @@ public class window extends JFrame {
 
     private void IniciarVentana() {
         Paneles();
-        Etiquetas();
-        Buttons();
     }
 
     private void Paneles() {
         panel = new JPanel();
         panel.setLayout(null);
         this.getContentPane().add(panel);
+        //Buttons();
         Etiquetas();
-        Buttons();
     }
 
     private void Etiquetas() {
-        ImageIcon imagen1 = new ImageIcon("cocacola.png");
-        JLabel cocacola = new JLabel();
-        cocacola.setBounds(110, 100, 300, 300);
-        cocacola.setIcon(new ImageIcon(imagen1.getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH)));
-        panel.add(cocacola);
-        
-        ImageIcon imagen2 = new ImageIcon("Sprite.png");
-        JLabel sprite = new JLabel();
-        sprite.setBounds(260, 100, 300, 300);
-        sprite.setIcon(new ImageIcon(imagen2.getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH)));
-        panel.add(sprite);
-        
-        ImageIcon imagen3 = new ImageIcon("fanta.png");
-        JLabel fanta = new JLabel();
-        fanta.setBounds(410, 100, 300, 300);
-        fanta.setIcon(new ImageIcon(imagen3.getImage().getScaledInstance(80, 80, Image.SCALE_SMOOTH)));
-        panel.add(fanta);
+        JLabel expendedor = new JLabel();
+        ImageIcon exp = new ImageIcon("exp1.png");
+        expendedor.setBounds(60, -15, 600, 600);
+        expendedor.setIcon(new ImageIcon(exp.getImage().getScaledInstance(600, 600, Image.SCALE_SMOOTH)));
+        panel.add(expendedor);
     }
 
     private void Buttons() {
