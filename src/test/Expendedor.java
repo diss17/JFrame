@@ -21,9 +21,8 @@ class Expendedor extends JPanel {
         Sprite = new Deposito();
         Fanta = new Deposito();
         coins = new Deposito();
-        if (numBebidas >= 6)
-            numBebidas = 6;
-        int posicionB = 80;
+        if (numBebidas >= 6) numBebidas = 6;
+        int posicionB = -30;
         //Creacion de bebidas dependiendo de la cantidad establecida 
         //mediante un ciclo que les asigna un numero de serie
         for (int i = 0; i < cantidadBebidas; i++) {

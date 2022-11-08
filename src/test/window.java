@@ -7,12 +7,12 @@ public class window extends JFrame {
 
     Expendedor exp;
     public JPanel panel;
+
     public window() {
         setSize(600, 600);//Establece tamanho de la ventana
         setTitle("Expendedor de Bebidas 3000");
         setLocationRelativeTo(null);//Establece posicion de la ventana
         IniciarVentana();
-        exp = new Expendedor(6, 500, panel);
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
@@ -26,11 +26,12 @@ public class window extends JFrame {
         panel = new JPanel();
         panel.setLayout(null);
         this.getContentPane().add(panel);
-        //Buttons();
+        Buttons();
         Etiquetas();
     }
 
     private void Etiquetas() {
+        exp = new Expendedor(6, 500, panel);
         JLabel expendedor = new JLabel();
         ImageIcon exp = new ImageIcon("exp1.png");
         expendedor.setBounds(60, -15, 600, 600);
@@ -43,16 +44,16 @@ public class window extends JFrame {
         JButton boton2 = new JButton();
         JButton boton3 = new JButton();
 
-        boton1.setText("QUEEE");
-        boton1.setBounds(100, 300, 100, 30);
+        boton1.setText("COKE");
+        boton1.setBounds(340, 90, 75, 30);
         boton1.setEnabled(true);
         panel.add(boton1);
-        boton2.setText("RIKAAAAAA");
-        boton2.setBounds(250, 300, 100, 30);
+        boton2.setText("SPRITE");
+        boton2.setBounds(340,180, 75, 30);
         boton2.setEnabled(true);
         panel.add(boton2);
-        boton3.setText("COLAAAAA");
-        boton3.setBounds(400, 300, 100, 30);
+        boton3.setText("FANTA");
+        boton3.setBounds(340, 135, 75, 30);
         boton3.setEnabled(true);
         panel.add(boton3);
     }

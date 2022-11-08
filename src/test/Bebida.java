@@ -30,8 +30,8 @@ class Sprite extends Bebida {
     public Sprite(int px, JPanel panel, int s) {
         super(s);
         ImageIcon imagen2 = new ImageIcon("Sprite.png");
-        sprite.setBounds(260, 100, 300, 300);
-        sprite.setIcon(new ImageIcon(imagen2.getImage().getScaledInstance(55, 80, Image.SCALE_SMOOTH)));
+        sprite.setBounds(212, px, 300, 300);
+        sprite.setIcon(new ImageIcon(imagen2.getImage().getScaledInstance(55, 55, Image.SCALE_SMOOTH)));
         panel.add(sprite);
     }
 
@@ -54,7 +54,7 @@ class CocaCola extends Bebida {
     public CocaCola(int px, JPanel panel, int c) {
         super(c);
         ImageIcon imagen1 = new ImageIcon("cocacola.png");
-        cocacola.setBounds(110, 100, 300, 300);
+        cocacola.setBounds(152, px, 300, 300);
         cocacola.setIcon(new ImageIcon(imagen1.getImage().getScaledInstance(55, 55, Image.SCALE_SMOOTH)));
         panel.add(cocacola);
     }
@@ -78,7 +78,7 @@ class Fanta extends Bebida {
         super(f);
 
         ImageIcon imagen3 = new ImageIcon("fanta.png");
-        fanta.setBounds(410, 100, 300, 300);
+        fanta.setBounds(272, px, 300, 300);
         fanta.setIcon(new ImageIcon(imagen3.getImage().getScaledInstance(55, 55, Image.SCALE_SMOOTH)));
         panel.add(fanta);
     }
