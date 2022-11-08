@@ -12,7 +12,7 @@ class Comprador {
         Bebida aux;
         //Try and Catch los cuales se encargan de testear el aux de tipo Bebida y detectar errores
         try {
-            aux = exp.comprarBebida(cualBebida);
+            aux = exp.comprarBebida(m, cualBebida);
             cantidad = exp.Vuelto();
         } catch (PagoIncorrectoException b) {
             aux = null;

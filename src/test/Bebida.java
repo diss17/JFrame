@@ -45,6 +45,7 @@ class Sprite extends Bebida {
     JLabel etiqueta() {
         return sprite;
     }
+    
 
 }
 

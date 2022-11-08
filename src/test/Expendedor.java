@@ -36,8 +36,8 @@ class Expendedor extends JPanel {
         Pago = moneda;
     }
 
-    public Bebida comprarBebida(int aux_b) throws PagoIncorrectoException, PagoInsuficienteException, NoHayBebidaException {
-
+    public Bebida comprarBebida(Moneda m, int aux_b) throws PagoIncorrectoException, PagoInsuficienteException, NoHayBebidaException {
+        Pago = m;
         if (Pago != null) {
             if (Pago.getValor() >= precioBebidas) {
                 for (int i = 0; i < Pago.getValor(); i = i + 100) {
