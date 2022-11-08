@@ -32,9 +32,12 @@ class Expendedor extends JPanel {
             posicionB = posicionB + 60;
         }
     }
+    public void recibirMoneda(Moneda moneda){
+        Pago = moneda;
+    }
 
-    public Bebida comprarBebida(Moneda m, int aux_b) throws PagoIncorrectoException, PagoInsuficienteException, NoHayBebidaException {
-        Pago = m;
+    public Bebida comprarBebida(int aux_b) throws PagoIncorrectoException, PagoInsuficienteException, NoHayBebidaException {
+
         if (Pago != null) {
             if (Pago.getValor() >= precioBebidas) {
                 for (int i = 0; i < Pago.getValor(); i = i + 100) {

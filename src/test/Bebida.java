@@ -29,10 +29,11 @@ class Sprite extends Bebida {
 
     public Sprite(int px, JPanel panel, int s) {
         super(s);
-        ImageIcon imagen2 = new ImageIcon("Sprite.png");
+        ImageIcon imagen2 = new ImageIcon("C:/Users/Gaspi/Desktop/Udec/thirdjobs(pruebas2)/JFrame/src/Sprite.png");
         sprite.setBounds(212, px, 300, 300);
         sprite.setIcon(new ImageIcon(imagen2.getImage().getScaledInstance(55, 55, Image.SCALE_SMOOTH)));
         panel.add(sprite);
+        BorradorBebidas borrado= new BorradorBebidas(sprite, s);
     }
 
     @Override
@@ -53,10 +54,11 @@ class CocaCola extends Bebida {
 
     public CocaCola(int px, JPanel panel, int c) {
         super(c);
-        ImageIcon imagen1 = new ImageIcon("cocacola.png");
+        ImageIcon imagen1 = new ImageIcon("C:/Users/Gaspi/Desktop/Udec/thirdjobs(pruebas2)/JFrame/src/cocacola.png");
         cocacola.setBounds(152, px, 300, 300);
         cocacola.setIcon(new ImageIcon(imagen1.getImage().getScaledInstance(55, 55, Image.SCALE_SMOOTH)));
         panel.add(cocacola);
+        BorradorBebidas borrado = new BorradorBebidas(cocacola, c);
     }
 
     @Override
@@ -77,10 +79,11 @@ class Fanta extends Bebida {
     public Fanta(int px,JPanel panel, int f) {
         super(f);
 
-        ImageIcon imagen3 = new ImageIcon("fanta.png");
+        ImageIcon imagen3 = new ImageIcon("C:/Users/Gaspi/Desktop/Udec/thirdjobs(pruebas2)/JFrame/src/fanta.png");
         fanta.setBounds(272, px, 300, 300);
         fanta.setIcon(new ImageIcon(imagen3.getImage().getScaledInstance(55, 55, Image.SCALE_SMOOTH)));
         panel.add(fanta);
+        BorradorBebidas borrar = new BorradorBebidas(fanta, f);
     }
 
     @Override
