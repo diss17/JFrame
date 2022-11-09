@@ -1,8 +1,8 @@
 package test;
+
 import java.awt.event.*;
 import java.awt.*;
 import javax.swing.*;
-
 
 public class window extends JFrame implements ActionListener {
 
@@ -11,9 +11,12 @@ public class window extends JFrame implements ActionListener {
     Expendedor exp_principal;
     Comprador cliente_principal;
     JLabel Bebida_selected;
-    JButton boton1,boton2,boton3,boton4,boton5,boton6,boton7,boton8;
+    JButton boton1, boton2, boton3, boton4, boton5, boton6, boton7, boton8;
     Moneda moneda_seleccionada;
-    int opcion=6;
+    BorradorBebidas r;
+    Bebida x;
+    Deposito Sprite = new Deposito();
+    int opcion = 6;
 
     public window() {
         setSize(900, 700);//Establece tamanho de la ventana
@@ -39,18 +42,17 @@ public class window extends JFrame implements ActionListener {
     }
 
     private void Etiquetas() {
-        Bebida_selected=new JLabel();
-        JLabel Output_b=new JLabel();
-        JLabel Output_m=new JLabel();
-
+        Bebida_selected = new JLabel();
+        JLabel Output_b = new JLabel();
+        JLabel Output_m = new JLabel();
         exp = new Expendedor(6, 500, panel);
         JLabel expendedor = new JLabel();
-        ImageIcon exp = new ImageIcon("C:/Users/Gaspi/Desktop/Udec/thirdjobs(pruebas2)/JFrame/src/exp1.png");
+        ImageIcon exp = new ImageIcon("exp1.png");
         expendedor.setBounds(60, -15, 600, 600);
         expendedor.setIcon(new ImageIcon(exp.getImage().getScaledInstance(600, 600, Image.SCALE_SMOOTH)));
         panel.add(expendedor);
-        
-        Bebida_selected.setBounds(620,30,240,40);
+
+        Bebida_selected.setBounds(620, 30, 240, 40);
         Bebida_selected.setOpaque(true);
         Bebida_selected.setBackground(Color.white);
         Bebida_selected.setText(" BEBIDA SELECCIONADA:");
@@ -76,21 +78,21 @@ public class window extends JFrame implements ActionListener {
         boton8.addActionListener(this);
 
         boton1.setText("COKE");//boton seleccionar cocacola
-        ImageIcon foto1 = new ImageIcon("C:/Users/Gaspi/Desktop/Udec/thirdjobs(pruebas2)/JFrame/src/cokeboton2.jpg");
+        ImageIcon foto1 = new ImageIcon("cokeboton2.jpg");
         boton1.setBounds(340, 90, 75, 30);
-        boton1.setIcon(new ImageIcon(foto1.getImage().getScaledInstance(boton1.getWidth()+12, boton1.getHeight(), Image.SCALE_SMOOTH)));
+        boton1.setIcon(new ImageIcon(foto1.getImage().getScaledInstance(boton1.getWidth() + 12, boton1.getHeight(), Image.SCALE_SMOOTH)));
         boton1.setEnabled(true);
 
         boton2.setText("SPRITE");//boton seleccionar sprite
-        ImageIcon foto2 = new ImageIcon("C:/Users/Gaspi/Desktop/Udec/thirdjobs(pruebas2)/JFrame/src/spriteboton.png");
-        boton2.setBounds(340,180, 75, 30);
-        boton2.setIcon(new ImageIcon(foto2.getImage().getScaledInstance(boton2.getWidth()+12, boton2.getHeight(), Image.SCALE_SMOOTH)));
+        ImageIcon foto2 = new ImageIcon("spriteboton.png");
+        boton2.setBounds(340, 180, 75, 30);
+        boton2.setIcon(new ImageIcon(foto2.getImage().getScaledInstance(boton2.getWidth() + 12, boton2.getHeight(), Image.SCALE_SMOOTH)));
         boton2.setEnabled(true);
 
         boton3.setText("FANTA");//boton seleccionar fanta
-        ImageIcon foto3 = new ImageIcon("C:/Users/Gaspi/Desktop/Udec/thirdjobs(pruebas2)/JFrame/src/fantaboton.jpg");
+        ImageIcon foto3 = new ImageIcon("fantaboton.jpg");
         boton3.setBounds(340, 135, 75, 30);
-        boton3.setIcon(new ImageIcon(foto3.getImage().getScaledInstance(boton3.getWidth()+12, boton3.getHeight(), Image.SCALE_SMOOTH)));
+        boton3.setIcon(new ImageIcon(foto3.getImage().getScaledInstance(boton3.getWidth() + 12, boton3.getHeight(), Image.SCALE_SMOOTH)));
         boton3.setEnabled(true);
 
         boton4.setText("PAGAR");
@@ -107,72 +109,72 @@ public class window extends JFrame implements ActionListener {
         boton6.setText("100");
         boton6.setBounds(373, 359, 35, 35);
         boton6.setEnabled(true);
-        
+
         panel.add(boton1);
         panel.add(boton2);
         panel.add(boton3);
         panel.add(boton4);
         panel.add(boton5);
 
-
     }
+
     //CONTROL DE LOS BOTONES
     @Override
-	public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == boton1) {
 
-		if(e.getSource()==boton1) {
             Bebida_selected.setText(" BEBIDA SELECCIONADA: COCA-COLA");
-            opcion=1;
+            opcion = 1;
         }
-        if(e.getSource()==boton3){
+        if (e.getSource() == boton3) {
             Bebida_selected.setText(" BEBIDA SELECCIONADA: FANTA");
-            opcion=3;   
+            opcion = 3;
         }
-        if(e.getSource()==boton2){
+        if (e.getSource() == boton2) {
             Bebida_selected.setText(" BEBIDA SELECCIONADA: SPRITE");
-            opcion=2;
+            opcion = 2;
         }
-        if(e.getSource()==boton5){
+        if (e.getSource() == boton5) {
             System.out.println("Estamos trabajando para entregar vuelto, vuelva más tarde.");
         }
-        if(e.getSource()==boton4){
+        if (e.getSource() == boton4) {
 
-            switch(opcion){
+            switch (opcion) {
                 case 1:
                     System.out.println("Recibiendo Coca");
+
                     try {
-                        exp_principal.comprarBebida(new Moneda1500(),opcion);
-                        repaint();
+                        exp_principal.comprarBebida(new Moneda1500(), opcion);
                     } catch (PagoIncorrectoException | PagoInsuficienteException | NoHayBebidaException e1) {
                         // TODO Auto-generated catch block
                         e1.printStackTrace();
                     }
                     break;
 
-                case 3: 
+                case 3:
                     System.out.println("Recibiendo Fanta");
                     try {
-                        exp_principal.comprarBebida(new Moneda1500(),opcion);
+                        exp_principal.comprarBebida(new Moneda1500(), opcion);
                     } catch (PagoIncorrectoException | PagoInsuficienteException | NoHayBebidaException e1) {
                         // TODO Auto-generated catch block
                         e1.printStackTrace();
                     }
                     break;
 
-                case 2: 
+                case 2:
                     System.out.println("Recibiendo Sprite");
                     try {
-                        exp_principal.comprarBebida(new Moneda1500(),opcion);
+                        exp_principal.comprarBebida(new Moneda1500(), opcion);
                     } catch (PagoIncorrectoException | PagoInsuficienteException | NoHayBebidaException e1) {
                         // TODO Auto-generated catch block
                         e1.printStackTrace();
                     }
                     break;
-                default: 
+                default:
                     System.out.println("Seleccione una bebida");
                     break;
             }
-        
+
         }
 
     }

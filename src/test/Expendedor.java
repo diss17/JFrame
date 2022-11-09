@@ -13,6 +13,8 @@ class Expendedor extends JPanel {
     private Deposito coins;
     private Moneda Pago;
     private Bebida gaseosa;
+    int posicionB;
+    JLabel a;
 
     public Expendedor(int numBebidas, int valorBebidas, JPanel panel) {
         cantidadBebidas = numBebidas;
@@ -21,7 +23,9 @@ class Expendedor extends JPanel {
         Sprite = new Deposito();
         Fanta = new Deposito();
         coins = new Deposito();
-        if (numBebidas >= 6) numBebidas = 6;
+        if (numBebidas >= 6) {
+            numBebidas = 6;
+        }
         int posicionB = -30;
         //Creacion de bebidas dependiendo de la cantidad establecida 
         //mediante un ciclo que les asigna un numero de serie
@@ -30,9 +34,11 @@ class Expendedor extends JPanel {
             Sprite.addBebida(new Sprite(posicionB, panel, 200 + 1));
             Fanta.addBebida(new Fanta(posicionB, panel, 300 + 1));
             posicionB = posicionB + 60;
+
         }
     }
-    public void recibirMoneda(Moneda moneda){
+
+    public void recibirMoneda(Moneda moneda) {
         Pago = moneda;
     }
 
@@ -57,10 +63,14 @@ class Expendedor extends JPanel {
                         }
                     case 2:
                         Bebida aux3 = Sprite.getBebida();
+
                         if (aux3 == null) {
                             aux_Bebida = Pago.getValor();
                             throw new NoHayBebidaException("No hay bebidas disponibles");
                         } else {
+
+                            a = aux3.etiqueta();
+                            BorradorBebidas borrador = new BorradorBebidas(a, 200);
                             return aux3;
                         }
                     case 3:
